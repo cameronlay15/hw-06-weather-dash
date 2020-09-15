@@ -111,3 +111,26 @@ function getData() {
           });
         });
       }
+      $("#searchCity").click(function () {
+        city = $("#city").val();
+        getData();
+        var checkArray = searchHistory.includes(city);
+        if (checkArray == true) {
+          return;
+        } else {
+          searchHistory.push(city);
+          localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+          var cityListButton = $("<a>").attr({
+            // list-group-item-action keeps the search history buttons consistent
+            class: "list-group-item list-group-item-action",
+            href: "#",
+          });
+          cityListButton.text(city);
+          $(".list-group").append(cityListButton);
+        }
+      });
+      // listens for action on the history buttons
+      $(".list-group-item").click(function () {
+        city = $(this).text();
+        getData();
+      });
