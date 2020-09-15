@@ -1,4 +1,18 @@
  //  creates links/buttons https://getbootstrap.com/docs/4.0/components/list-group/
+ var searchHistory = [];
+// returns local storage search history
+function getItems() {
+  var storedCities = JSON.parse(localStorage.getItem("searchHistory"));
+  if (storedCities !== null) {
+    searchHistory = storedCities;
+  }
+  // lists up to 8
+  for (i = 0; i < searchHistory.length; i++) {
+    if (i == 8) {
+      break;
+    }
+ 
+ 
  cityListButton = $("<a>").attr({
     class: "list-group-item list-group-item-action",
     href: "#",
