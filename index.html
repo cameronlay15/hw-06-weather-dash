@@ -13,9 +13,38 @@
         <link rel="stylesheet" href="./style.css" />
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+        <div class="container-fluid">
+            <nav class="navbar bg-dark">
+                <p class="header-style mx-auto">Weather Dashboard</p>
+            </nav>
+            <div class="row">
+                <div class="col-4 bg-light">
+                    <div class="mt-2">Search for a City:</div>
+                    <div class="input-group mb-3">
+                        <input type="text" id="city" class="form-control">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="searchCity"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                    <!-- left column / list -->
+                    <div class="list-group"></div>
+                </div>
+                <div class="col-8">
+                    <div class="row p-2">
+                        <div class="card">
+                            <!-- main card -->
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                        <div class="row">
+                            <h4>5-Day Forecast:</h4>
+                        </div>
+                    <!-- five day -->
+                    <div id="weeklyForecast" class="row"></div>
+                </div>
+            </div>
+            
+        </div>
         
         <script src="https://kit.fontawesome.com/1cc5977b2c.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
