@@ -49,4 +49,26 @@ function getData() {
         var lat = response.coord.lat;
         var lon = response.coord.lon;
         // separate request for UV index, requires lat/long
-    
+        $.ajax({
+            url:
+              "https://api.openweathermap.org/data/2.5/uvi?appid=642f9e3429c58101eb516d1634bdaa4b&lat=" +
+              lat +
+              "&lon=" +
+              lon,
+            method: "GET",
+            // displays UV in main card
+          }).then(function (response) {
+            mainCard.append(
+              $("<p>").html("UV Index: <span>" + response.value + "</span>")
+            );
+            //
+            if (response.value <= 2) {
+              $("span").attr("class", "btn btn-outline-success");
+            }
+            if (response.value > 2 && response.value <= 5) {
+              $("span").attr("class", "btn btn-outline-warning");
+            }
+            if (response.value > 5) {
+              $("span").attr("class", "btn btn-outline-danger");
+            }
+          });
